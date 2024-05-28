@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Image Slider</title>
-<style>
-    body, html { margin: 0; padding: 0; }
-    .header-image {
-        width: 100%;
-        height: 300px; /* Adjust this value as needed */
-        object-fit: cover; /* Ensures the image covers the area without stretching */
-        display: block;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Switcher</title>
 </head>
+
 <body>
-<img id="headerImage" class="header-image" src="https://www.marionfl.org/home/showpublishedimage/22630/637483908880470000" alt="Header Image">
+    <div id="imageContainer" style="width: 700px; height: 200px; overflow: hidden;">
+        <img id="switchingImage" src="https://www.marionfl.org/home/showpublishedimage/24416/638255272671670000"
+            alt="Image" style="width: 100%;">
+    </div>
 
-<script>
-    const images = [
-        "https://www.marionfl.org/home/showpublishedimage/22630/637483908880470000", // Image 1
-        "https://www.blueskyinsure.com/images/logo-national-flood-insurance-program.png", // Image 2
-        "https://www.marionfl.org/home/showpublishedimage/24853/638464565853830000" // Image 3
-    ];
-    let currentIndex = 0;
+    <script>
+        var images = [
+            'https://www.marionfl.org/home/showpublishedimage/24416/638255272671670000',
+            'https://www.marionfl.org/home/showpublishedimage/22636/637484008075430000'
+        ];
+        var currentIndex = 0;
+        var imageElement = document.getElementById('switchingImage');
 
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        document.getElementById('headerImage').src = images[currentIndex];
-    }
-
-    setInterval(changeImage, 5000); // Change image every 5 seconds
-</script>
+        setInterval(function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+        }, 5000); // 5000ms = 5 seconds
+    </script>
 </body>
+
 </html>
 
 
